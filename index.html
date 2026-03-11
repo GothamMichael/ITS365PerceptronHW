@@ -1,0 +1,47 @@
+<html>
+<head>
+  <link rel="stylesheet" href="style.css">
+  <title>Perceptron Classifier</title>
+</head>
+<body>
+  <h1>L vs T Classifier</h1>
+  <div id="grid" class="grid-container">
+    <script>
+      for(let i=0; i<16; i++) {
+        document.write(`<div class="cell" id="cell-${i}" onclick="toggle(this)"></div>`);
+      }
+    </script>
+  </div>
+  <br>
+  <button onclick="predict()">Predict</button>
+  <h2 id="output">Result: ?</h2>
+  <script>
+    const weights = [ 0.01 -0.01  0.    0.    0.   -0.01 -0.01  0.    0.01 -0.01  0.    0.
+  0.01  0.    0.01  0.01]
+    const bias = 0.0;
+
+    function toggle(cell) {
+      cell.classList.toggle('active');
+    }
+
+    function predict() {
+      let inputs = [];
+      for(let i=0; i<16; i++) {
+        inputs.push(document.getElementById(`cell-${i}`).classList.contains('active') ? 1 : 0);
+      }
+
+      let linear_product = 0;
+      for(let i=0; i<16; i++) {
+        linear_product += inputs[i] * weights[i];
+      }
+      linear_product += bias;
+
+      //1 for L, 0 for T
+      let result = (linear_product >= 0) ? "L" : "T";
+      document.getElementById("output").innerText = "Result: " + result;
+      }
+    </script>
+</body>
+</html>
+  
+</h
