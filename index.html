@@ -20,8 +20,12 @@
   0.01  0.    0.01  0.01]
     const bias = 0.0;
 
-    function toggle(cell) {
-      cell.classList.toggle('active');
+    function toggle(element) {
+      if (element.classList.contains('active')) {
+        element.classList.remove('active');
+      } else {
+        element.classList.add('active');
+      }
     }
 
     function predict() {
