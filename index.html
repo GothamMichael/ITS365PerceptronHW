@@ -16,8 +16,7 @@
   <button onclick="predict()">Predict</button>
   <h2 id="output">Result: ?</h2>
   <script>
-    const weights = [ 0.01 -0.01  0.    0.    0.   -0.01 -0.01  0.    0.01 -0.01  0.    0.
-  0.01  0.    0.01  0.01]
+    const weights = [0.01, -0.01, 0.0, 0.0, 0.0, -0.01, -0.01, 0.0, 0.01, -0.01, 0.0, 0.0, 0.01, 0.0, 0.01, 0.01]
     const bias = 0.0;
 
     function toggle(element) {
@@ -30,6 +29,7 @@
 
     function predict() {
       let inputs = [];
+      
       for(let i=0; i<16; i++) {
         inputs.push(document.getElementById(`cell-${i}`).classList.contains('active') ? 1 : 0);
       }
@@ -47,5 +47,3 @@
     </script>
 </body>
 </html>
-  
-</h
